@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A10000000000000000000050 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000050 /* AppGroup.swift */; };
+		A10000000000000000000051 /* PendingImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000051 /* PendingImport.swift */; };
+		A10000000000000000000060 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000060 /* ShareViewController.swift */; };
+		A10000000000000000000061 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000050 /* AppGroup.swift */; };
+		A10000000000000000000062 /* PendingImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000051 /* PendingImport.swift */; };
+		A10000000000000000000063 /* HoardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000040 /* HoardAPI.swift */; };
+		A10000000000000000000064 /* ImportSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000030 /* ImportSource.swift */; };
+		A10000000000000000000065 /* TheReadingHoardShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B10000000000000000000063 /* TheReadingHoardShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A10000000000000000000011 /* IntroScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000011 /* IntroScene.swift */; };
 		A10000000000000000000012 /* IntroShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000012 /* IntroShapes.swift */; };
 		A10000000000000000000013 /* IntroRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000013 /* IntroRenderer.swift */; };
@@ -39,6 +47,16 @@
 		A10000000000000000000039 /* ScreenshotImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000039 /* ScreenshotImporter.swift */; };
 		A10000000000000000000040 /* HoardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000040 /* HoardAPI.swift */; };
 		A10000000000000000000041 /* RemoteImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000041 /* RemoteImporter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C10000000000000000000002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E10000000000000000000004;
+			remoteInfo = TheReadingHoardShare;
+		};
 		C10000000000000000000001 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D10000000000000000000001 /* Project object */;
@@ -48,7 +66,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F1000000000000000000000A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A10000000000000000000065 /* TheReadingHoardShare.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B10000000000000000000050 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		B10000000000000000000051 /* PendingImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingImport.swift; sourceTree = "<group>"; };
+		B10000000000000000000060 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		B10000000000000000000061 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B10000000000000000000062 /* TheReadingHoardShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheReadingHoardShare.entitlements; sourceTree = "<group>"; };
+		B10000000000000000000063 /* TheReadingHoardShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TheReadingHoardShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B10000000000000000000011 /* IntroScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScene.swift; sourceTree = "<group>"; };
 		B10000000000000000000012 /* IntroShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroShapes.swift; sourceTree = "<group>"; };
 		B10000000000000000000013 /* IntroRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroRenderer.swift; sourceTree = "<group>"; };
@@ -85,6 +123,16 @@
 		B10000000000000000000040 /* HoardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoardAPI.swift; sourceTree = "<group>"; };
 		B10000000000000000000041 /* RemoteImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImporter.swift; sourceTree = "<group>"; };
 		B10000000000000000000024 /* TheReadingHoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheReadingHoard.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F10000000000000000000007 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F10000000000000000000001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -103,6 +151,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D10000000000000000000035 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000050 /* AppGroup.swift */,
+				B10000000000000000000051 /* PendingImport.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000036 /* TheReadingHoardShare */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000060 /* ShareViewController.swift */,
+				B10000000000000000000061 /* Info.plist */,
+				B10000000000000000000062 /* TheReadingHoardShare.entitlements */,
+			);
+			path = TheReadingHoardShare;
+			sourceTree = "<group>";
+		};
 		D10000000000000000000030 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +220,7 @@
 				541FB1A6300D2DF800A84D47 /* Assets.xcassets */,
 				D10000000000000000000003 /* TheReadingHoard */,
 				D10000000000000000000009 /* TheReadingHoardTests */,
+				D10000000000000000000036 /* TheReadingHoardShare */,
 				D1000000000000000000000A /* Frameworks */,
 				D1000000000000000000000B /* Products */,
 			);
@@ -169,6 +237,7 @@
 				D10000000000000000000006 /* Models */,
 				D10000000000000000000007 /* Services */,
 				D10000000000000000000030 /* Persistence */,
+				D10000000000000000000035 /* Shared */,
 				D10000000000000000000008 /* Features */,
 			);
 			path = TheReadingHoard;
@@ -248,6 +317,7 @@
 			children = (
 				B1000000000000000000000F /* TheReadingHoard.app */,
 				B10000000000000000000010 /* TheReadingHoardTests.xctest */,
+				B10000000000000000000063 /* TheReadingHoardShare.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -292,6 +362,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E10000000000000000000004 /* TheReadingHoardShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E10000000000000000000013 /* Build configuration list for PBXNativeTarget "TheReadingHoardShare" */;
+			buildPhases = (
+				F10000000000000000000008 /* Sources */,
+				F10000000000000000000007 /* Frameworks */,
+				F10000000000000000000009 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TheReadingHoardShare;
+			productName = TheReadingHoardShare;
+			productReference = B10000000000000000000063 /* TheReadingHoardShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		E10000000000000000000001 /* TheReadingHoard */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E10000000000000000000011 /* Build configuration list for PBXNativeTarget "TheReadingHoard" */;
@@ -299,10 +386,12 @@
 				F10000000000000000000003 /* Sources */,
 				F10000000000000000000001 /* Frameworks */,
 				F10000000000000000000004 /* Resources */,
+				F1000000000000000000000A /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E10000000000000000000005 /* PBXTargetDependency */,
 			);
 			name = TheReadingHoard;
 			productName = TheReadingHoard;
@@ -344,6 +433,9 @@
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = E10000000000000000000001;
 					};
+					E10000000000000000000004 = {
+						CreatedOnToolsVersion = 15.0;
+					};
 				};
 			};
 			buildConfigurationList = E10000000000000000000010 /* Build configuration list for PBXProject "TheReadingHoard" */;
@@ -361,11 +453,19 @@
 			targets = (
 				E10000000000000000000001 /* TheReadingHoard */,
 				E10000000000000000000002 /* TheReadingHoardTests */,
+				E10000000000000000000004 /* TheReadingHoardShare */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F10000000000000000000009 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F10000000000000000000004 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -384,6 +484,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F10000000000000000000008 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000060 /* ShareViewController.swift in Sources */,
+				A10000000000000000000061 /* AppGroup.swift in Sources */,
+				A10000000000000000000062 /* PendingImport.swift in Sources */,
+				A10000000000000000000063 /* HoardAPI.swift in Sources */,
+				A10000000000000000000064 /* ImportSource.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F10000000000000000000003 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,6 +528,8 @@
 				A10000000000000000000039 /* ScreenshotImporter.swift in Sources */,
 				A10000000000000000000040 /* HoardAPI.swift in Sources */,
 				A10000000000000000000041 /* RemoteImporter.swift in Sources */,
+				A10000000000000000000050 /* AppGroup.swift in Sources */,
+				A10000000000000000000051 /* PendingImport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +545,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E10000000000000000000005 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E10000000000000000000004 /* TheReadingHoardShare */;
+			targetProxy = C10000000000000000000002 /* PBXContainerItemProxy */;
+		};
 		E10000000000000000000003 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E10000000000000000000001 /* TheReadingHoard */;
@@ -439,6 +558,56 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		E10000000000000000000026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TheReadingHoardShare/TheReadingHoardShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRHU3U42X6;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TheReadingHoardShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lisamd22.TheReadingHoard.Share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E10000000000000000000027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TheReadingHoardShare/TheReadingHoardShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRHU3U42X6;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TheReadingHoardShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lisamd22.TheReadingHoard.Share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		E10000000000000000000020 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -639,6 +808,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E10000000000000000000013 /* Build configuration list for PBXNativeTarget "TheReadingHoardShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E10000000000000000000026 /* Debug */,
+				E10000000000000000000027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E10000000000000000000010 /* Build configuration list for PBXProject "TheReadingHoard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

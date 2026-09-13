@@ -235,7 +235,7 @@ struct ImportView: View {
             for await event in remote.run(url: url) {
                 guard !Task.isCancelled else { return }
                 switch event {
-                case .queued(let cached):
+                case .queued(_, let cached):
                     if cached { phase = .working("The library has read this one before.") }
                 case .stage(let message):
                     phase = books.isEmpty ? .working(message) : .streaming(books, stage: message)

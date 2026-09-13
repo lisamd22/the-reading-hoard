@@ -84,6 +84,54 @@ final class AppState: ObservableObject {
         }
     }
 
+    /// Links the share extension accepted while the app was away. Called on
+    /// launch and every foreground. `submitted` entries never reached the
+    /// backend — resubmit under the same id (idempotent). `queued` entries are
+    /// streamed; a finished job replays in under a second.
+    @Published private(set) var recentlyArrived: [BookRecommendation] = []
+    private var draining: Set<String> = []
+
+    func drainSharedInbox() {
+        SharedImportInbox.prune()
+        for item in SharedImportInbox.load() where item.state == .submitted || item.state == .queued {
+            guard !draining.contains(item.id) else { continue }
+            draining.insert(item.id)
+            Task { await drain(item) }
+        }
+    }
+
+    private func drain(_ item: PendingImport) async {
+        defer { draining.remove(item.id) }
+        let importer = RemoteImporter()
+        let events: AsyncStream<ImportEvent>
+        if let jobID = item.jobID, item.state == .queued {
+            events = importer.resume(jobID: jobID)
+        } else if let url = URL(string: item.url) {
+            events = importer.run(url: url, clientJobID: item.id)
+        } else {
+            SharedImportInbox.update(id: item.id) { $0.state = .failed }; return
+        }
+        var arrived: [BookRecommendation] = []
+        for await event in events {
+            switch event {
+            case .queued(let jobID, let cached):
+                SharedImportInbox.update(id: item.id) { $0.state = .queued; $0.jobID = jobID; $0.cached = cached }
+            case .book(let rec):
+                arrived.append(rec)
+                await adopt(rec)
+            case .done(_, let message):
+                SharedImportInbox.update(id: item.id) { $0.state = .done; $0.message = message }
+            case .failed(let message, _):
+                SharedImportInbox.update(id: item.id) { $0.state = .failed; $0.message = message }
+            default:
+                break
+            }
+        }
+        if !arrived.isEmpty { recentlyArrived.append(contentsOf: arrived) }
+    }
+
+    func clearRecentlyArrived() { recentlyArrived = [] }
+
     /// Author names already in the library, fed to Vision as `customWords` so OCR
     /// stops mangling names it has seen before.
     func customWordsForOCR() -> [String] {

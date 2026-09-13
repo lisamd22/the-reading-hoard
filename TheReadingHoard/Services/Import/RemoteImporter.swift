@@ -3,23 +3,10 @@ import os
 
 private let log = Logger(subsystem: "com.lisamd22.TheReadingHoard", category: "import")
 
-/// Dev trace that survives the Simulator's unreliable unified log: appends to
-/// Documents/import-trace.log. Read with `simctl get_app_container ... data`.
-enum ImportTrace {
-    static let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        .appendingPathComponent("import-trace.log")
-    static func write(_ line: String) {
-        #if DEBUG
-        let stamped = "\(Date().timeIntervalSince1970.rounded(.down)) \(line)\n"
-        if let h = try? FileHandle(forWritingTo: url) { h.seekToEndOfFile(); h.write(stamped.data(using: .utf8)!); try? h.close() }
-        else { try? stamped.write(to: url, atomically: true, encoding: .utf8) }
-        #endif
-    }
-}
 
 /// What the Import screen listens to. One stream per link.
 enum ImportEvent: Sendable {
-    case queued(cached: Bool)
+    case queued(jobID: String, cached: Bool)
     case stage(String)
     case captionNames(count: Int)
     /// A book the server grounded, resolved against Apple Books on this device.
@@ -34,16 +21,36 @@ struct RemoteImporter: Sendable {
     var api: HoardAPI = .configured
     var catalog: any CatalogResolving = AppleBooksCatalog()
 
-    func run(url: URL) -> AsyncStream<ImportEvent> {
+    func run(url: URL, clientJobID: String = UUID().uuidString) -> AsyncStream<ImportEvent> {
         AsyncStream { continuation in
             let task = Task {
                 do {
-                    let accepted = try await api.submit(url: url, clientJobID: UUID().uuidString)
+                    let accepted = try await api.submit(url: url, clientJobID: clientJobID)
                     log.info("submitted job=\(accepted.jobID, privacy: .public) cached=\(accepted.cached)"); ImportTrace.write("submitted \(accepted.jobID) cached=\(accepted.cached)")
-                    continuation.yield(.queued(cached: accepted.cached))
+                    continuation.yield(.queued(jobID: accepted.jobID, cached: accepted.cached))
+                    for await ev in stream(jobID: accepted.jobID) { continuation.yield(ev) }
+                } catch {
+                    log.error("stream error: \(error.localizedDescription, privacy: .public)"); ImportTrace.write("ERROR \(error)")
+                    continuation.yield(.failed(message: error.localizedDescription, partialCount: 0))
+                }
+                log.info("stream finished"); ImportTrace.write("finished")
+                continuation.finish()
+            }
+            continuation.onTermination = { _ in task.cancel() }
+        }
+    }
 
+    /// Resume a job the share extension already submitted. Replays from the
+    /// server's event log, so a job that finished while the app was closed lands
+    /// in ~0.4 s.
+    func resume(jobID: String) -> AsyncStream<ImportEvent> { stream(jobID: jobID) }
+
+    private func stream(jobID: String) -> AsyncStream<ImportEvent> {
+        AsyncStream { continuation in
+            let task = Task {
+                do {
                     var count = 0
-                    for try await event in api.events(jobID: accepted.jobID) {
+                    for try await event in api.events(jobID: jobID) {
                         log.info("event: \(String(describing: event).prefix(80), privacy: .public)"); ImportTrace.write("event \(String(describing: event).prefix(100))")
                         switch event {
                         case .accepted(let cached, let message):

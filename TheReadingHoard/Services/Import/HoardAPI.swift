@@ -10,13 +10,16 @@ struct HoardAPI: Sendable {
     let appKey: String
     let installID: String
 
-    /// Dev override: `-hoard-api http://192.168.1.10:8080` as a launch argument,
-    /// or the `HoardAPIBaseURL` UserDefaults key. Falls back to the production
-    /// host. Simulator can reach the Mac at localhost.
+    /// Dev override: `-hoard-api http://192.168.1.10:8080` as a launch argument
+    /// (the app persists it to the App Group so the extension uses it too), or
+    /// the `HoardAPIBaseURL` key in the shared defaults. Falls back to the
+    /// production host. The Simulator can reach the Mac at localhost.
     static var configured: HoardAPI {
         let args = ProcessInfo.processInfo.arguments
-        var base = UserDefaults.standard.string(forKey: "HoardAPIBaseURL")
-        if let i = args.firstIndex(of: "-hoard-api"), i + 1 < args.count { base = args[i + 1] }
+        if let i = args.firstIndex(of: "-hoard-api"), i + 1 < args.count {
+            AppGroup.defaults.set(args[i + 1], forKey: "HoardAPIBaseURL")
+        }
+        let base = AppGroup.defaults.string(forKey: "HoardAPIBaseURL")
         #if targetEnvironment(simulator)
         let fallback = "http://localhost:8080"
         #else
@@ -25,18 +28,8 @@ struct HoardAPI: Sendable {
         return HoardAPI(
             baseURL: URL(string: base ?? fallback)!,
             appKey: (Bundle.main.object(forInfoDictionaryKey: "HoardAppKey") as? String) ?? "",
-            installID: Self.installID
+            installID: AppGroup.installID
         )
-    }
-
-    /// Stable per-install id for rate limiting. Not an account, not tracking
-    /// across installs; a reinstall gets a new one.
-    private static var installID: String {
-        let key = "HoardInstallID"
-        if let id = UserDefaults.standard.string(forKey: key) { return id }
-        let id = UUID().uuidString
-        UserDefaults.standard.set(id, forKey: key)
-        return id
     }
 
     struct JobAccepted: Decodable, Sendable {

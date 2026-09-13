@@ -40,6 +40,7 @@ struct RootView: View {
 
 private struct MainTabView: View {
     @EnvironmentObject private var appState: AppState
+    @Environment(\.scenePhase) private var scenePhase
     @State private var selectedTab = ProcessInfo.processInfo.arguments.contains("-hoard-import") ? 1 : 0
 
     var body: some View {
@@ -64,6 +65,12 @@ private struct MainTabView: View {
             .tag(1)
         }
         .tint(HoardTheme.gold)
-        .task { await appState.loadLibrary() }
+        .task {
+            await appState.loadLibrary()
+            appState.drainSharedInbox()
+        }
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .active { appState.drainSharedInbox() }
+        }
     }
 }
