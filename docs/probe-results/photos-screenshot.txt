@@ -1,0 +1,14 @@
+READING HOARD PROBE  2026-09-01 11:09:25 +0000
+Device: physical iPhone. App: Photos. Action: TikTok screenshot -> Share
+inputItems: 1
+attributedTitle: nil / attributedContentText: nil
+attachments: 1
+
+  --- attachment[0.0] ---
+  suggestedName: Screenshot 2026-09-01 at 13.09.13.png
+  registeredTypeIdentifiers (1):
+     - public.png
+  openInPlace-capable: []
+  -> public.png
+       FILE  Screenshot 2026-09-01 at 13.09.13.png  3024243 bytes (2.88 MB)
+--- end of probe (0.1s) ---

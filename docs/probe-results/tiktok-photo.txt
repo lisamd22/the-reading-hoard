@@ -1,0 +1,11 @@
+READING HOARD PROBE  2026-09-01 10:59:52 +0000
+Device: physical iPhone. App: TikTok. Action: post -> Share -> third-party
+inputItems: 1
+attributedTitle: nil / attributedContentText: nil
+attachments: 1
+  --- attachment[0.0] ---
+  registeredTypeIdentifiers (1):
+     - public.url
+  openInPlace-capable: []
+  -> public.url   https://vm.tiktok.com/ZGdxo8VFD/
+--- end of probe (0.0s) ---

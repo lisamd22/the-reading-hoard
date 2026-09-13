@@ -15,3 +15,11 @@ xcuserdata/
 
 # Codex working files
 work/
+
+# backend secrets and local db
+backend/.env
+backend/*.db*
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/

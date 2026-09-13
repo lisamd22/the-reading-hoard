@@ -27,7 +27,9 @@ struct MockRecommendationImporter: RecommendationImporting {
             title: "The Very Secret Society of Irregular Witches",
             author: "Sangu Mandanna",
             recommendationSummary: "Recommended as a warm found-family fantasy with gentle magic, a cozy house, and a slow-burn romance.",
-            sourceURL: url
+            sources: [ImportSource(platform: .detect(host: url.host), canonicalURL: url, originalURL: url)],
+            confidence: .high,
+            resolution: .confirmed
         )
     }
 
