@@ -9,6 +9,7 @@ primary_region = "iad"
   DB_PATH = "/data/hoard.db"
   PIPELINE_VERSION = "v1"
   WORKERS = "4"
+  TIKTOK_VENDOR_FIRST = "1"
 
 [[mounts]]
   source = "hoard_data"

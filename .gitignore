@@ -23,3 +23,6 @@ backend/.venv/
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# App key for the backend (matches fly secrets APP_KEY)
+Config/Secrets.xcconfig

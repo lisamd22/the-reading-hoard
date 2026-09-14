@@ -20,6 +20,8 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>HoardAppKey</key>
+	<string>$(HOARD_APP_KEY)</string>
 	<!-- Dev only: the extension reaches the backend at http://localhost / LAN. -->
 	<key>NSAppTransportSecurity</key>
 	<dict>

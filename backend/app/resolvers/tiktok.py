@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import os
 import re
 
 import httpx
@@ -114,3 +115,76 @@ class TikTokPageResolver:
             comments=comments, duration_seconds=float(video.get("duration") or 0) or None,
             video_bytes=vr.content, video_mime="video/mp4", resolver=self.name,
         )
+
+
+class ScrapeCreatorsTikTokResolver:
+    """Fallback for when TikTok serves a shell page to a datacenter IP — which it
+    does from Fly iad (measured 2026-09-14: "page was a shell, no video-detail").
+    GET /v2/tiktok/video returns TikTok's internal `aweme_detail`: `desc`,
+    `author.unique_id`, `video.play_addr.url_list` (fetchable, no cookie, measured
+    2.3 MB in 1.0 s), `video.duration` in MILLISECONDS, and
+    `image_post_info.images[].display_image.url_list` for carousels. 1 credit."""
+    name = "tiktok.scrapecreators"
+    base = "https://api.scrapecreators.com"
+
+    def __init__(self, client: httpx.AsyncClient, api_key: str | None = None):
+        self.client = client
+        self.api_key = api_key or os.environ.get("SCRAPECREATORS_API_KEY", "")
+
+    async def resolve(self, canonical: Canonical) -> Media:
+        if not self.api_key:
+            raise ResolveError("vendor_unconfigured", "SCRAPECREATORS_API_KEY not set")
+        r = await self.client.get(
+            f"{self.base}/v2/tiktok/video", params={"url": canonical.url},
+            headers={"x-api-key": self.api_key}, timeout=25,
+        )
+        if r.status_code == 404:
+            raise ResolveError("removed", "vendor 404")
+        if r.status_code in (401, 403):
+            raise ResolveError("vendor_auth", f"HTTP {r.status_code}")
+        if r.status_code == 429:
+            raise ResolveError("vendor_rate_limited", "429", retryable=True)
+        if r.status_code != 200:
+            raise ResolveError("vendor_status", f"HTTP {r.status_code}", retryable=r.status_code >= 500)
+
+        a = (r.json() or {}).get("aweme_detail") or {}
+        if not a:
+            raise ResolveError("vendor_empty", "no aweme_detail", retryable=True)
+        caption = a.get("desc") or ""
+        creator = (a.get("author") or {}).get("unique_id") or canonical.creator
+        cdn = {"User-Agent": IPHONE_UA, "Referer": "https://www.tiktok.com/"}
+
+        images = [
+            ((im.get("display_image") or {}).get("url_list") or [None])[0]
+            for im in ((a.get("image_post_info") or {}).get("images") or [])
+        ]
+        images = [u for u in images if u]
+        if images:
+            async def fetch(u: str) -> bytes | None:
+                ir = await self.client.get(u, headers=cdn, follow_redirects=True)
+                return ir.content if ir.status_code == 200 and ir.content else None
+            got = [b for b in await asyncio.gather(*(fetch(u) for u in images[:12])) if b]
+            if not got:
+                raise ResolveError("tiktok_images_failed", "no slide fetched", retryable=True)
+            return Media(canonical=canonical, kind=MediaKind.IMAGES, caption=caption, creator=creator,
+                         image_bytes=got, image_mime="image/jpeg", resolver=self.name)
+
+        video = a.get("video") or {}
+        urls = ((video.get("play_addr") or {}).get("url_list") or
+                (video.get("download_addr") or {}).get("url_list") or [])
+        if not urls:
+            raise ResolveError("tiktok_no_play_addr", "aweme_detail.video had no play_addr")
+        last: str = ""
+        for u in urls[:3]:
+            vr = await self.client.get(u, headers=cdn, follow_redirects=True)
+            if vr.status_code == 200 and vr.content:
+                if len(vr.content) > MAX_MEDIA_BYTES:
+                    raise ResolveError("too_large", f"{len(vr.content)} bytes")
+                dur = video.get("duration")
+                return Media(
+                    canonical=canonical, kind=MediaKind.VIDEO, caption=caption, creator=creator,
+                    duration_seconds=(float(dur) / 1000.0) if dur else None,
+                    video_bytes=vr.content, video_mime="video/mp4", resolver=self.name,
+                )
+            last = f"HTTP {vr.status_code}"
+        raise ResolveError("tiktok_video_fetch", f"{last} on play_addr", retryable=True)

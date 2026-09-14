@@ -22,7 +22,7 @@ from app.prompt import caption_spans
 from app.resolvers.base import Media, MediaKind, ResolveError, Resolver
 from app.resolvers.instagram import InstagramPageResolver, ScrapeCreatorsInstagramResolver
 from app.resolvers.pinterest import PinterestPageResolver
-from app.resolvers.tiktok import TikTokPageResolver
+from app.resolvers.tiktok import ScrapeCreatorsTikTokResolver, TikTokPageResolver
 from app.resolvers.youtube import YouTubeResolver
 from app.store import Store
 
@@ -31,6 +31,11 @@ log = logging.getLogger("hoard.jobs")
 PIPELINE_VERSION = os.environ.get("PIPELINE_VERSION", "v1")
 JOB_TIMEOUT = float(os.environ.get("JOB_TIMEOUT", "60"))
 FETCH_TIMEOUT = float(os.environ.get("FETCH_TIMEOUT", "20"))
+# Managed vendors can take longer than a direct page fetch (one call measured >20 s).
+VENDOR_FETCH_TIMEOUT = float(os.environ.get("VENDOR_FETCH_TIMEOUT", "35"))
+# From a datacenter IP TikTok serves a shell page every time (measured on Fly iad),
+# so there the vendor goes first and the free page path is the fallback.
+TIKTOK_VENDOR_FIRST = os.environ.get("TIKTOK_VENDOR_FIRST", "0") == "1"
 WORKERS = int(os.environ.get("WORKERS", "4"))
 DAILY_BUDGET = int(os.environ.get("DAILY_GEMINI_CALLS", "2000"))
 
@@ -55,8 +60,11 @@ class Runner:
         # Primary -> fallback per platform. The page resolvers are free; the
         # vendor is the fallback (or primary, for Instagram, where the page gives
         # only the caption).
+        tiktok: list[Resolver] = [TikTokPageResolver(client), ScrapeCreatorsTikTokResolver(client)]
+        if TIKTOK_VENDOR_FIRST:
+            tiktok.reverse()
         self.chains: dict[Platform, list[Resolver]] = {
-            Platform.TIKTOK: [TikTokPageResolver(client)],
+            Platform.TIKTOK: tiktok,
             Platform.PINTEREST: [PinterestPageResolver(client)],
             Platform.YOUTUBE: [YouTubeResolver(client)],
             Platform.INSTAGRAM: [ScrapeCreatorsInstagramResolver(client), InstagramPageResolver(client)],
@@ -202,7 +210,8 @@ class Runner:
         floor: Media | None = None
         for r in self.chains.get(job.canonical.platform, []):
             try:
-                m = await asyncio.wait_for(r.resolve(job.canonical), FETCH_TIMEOUT)
+                cap = VENDOR_FETCH_TIMEOUT if "scrapecreators" in r.name else FETCH_TIMEOUT
+                m = await asyncio.wait_for(r.resolve(job.canonical), cap)
                 if m.kind is MediaKind.TEXT_ONLY:
                     floor = floor or m
                     continue          # keep trying for real media
@@ -213,6 +222,7 @@ class Runner:
                     return None, e    # definitive - stop the chain
                 log.info("resolver %s failed on %s: %s", r.name, job.canonical.url, e)
             except asyncio.TimeoutError:
+                log.info("resolver %s timed out on %s", r.name, job.canonical.url)
                 last = ResolveError("resolver_timeout", r.name, retryable=True)
             except Exception as e:
                 last = ResolveError("resolver_error", f"{r.name}: {e}", retryable=True)

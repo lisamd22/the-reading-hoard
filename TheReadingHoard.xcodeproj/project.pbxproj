@@ -82,6 +82,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B10000000000000000000070 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Secrets.xcconfig; path = Config/Secrets.xcconfig; sourceTree = "<group>"; };
 		B10000000000000000000042 /* SharedImportsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedImportsSection.swift; sourceTree = "<group>"; };
 		B10000000000000000000050 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		B10000000000000000000051 /* PendingImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingImport.swift; sourceTree = "<group>"; };
@@ -153,6 +154,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D10000000000000000000037 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000070 /* Secrets.xcconfig */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
 		D10000000000000000000035 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +232,7 @@
 				D10000000000000000000003 /* TheReadingHoard */,
 				D10000000000000000000009 /* TheReadingHoardTests */,
 				D10000000000000000000036 /* TheReadingHoardShare */,
+				D10000000000000000000037 /* Config */,
 				D1000000000000000000000A /* Frameworks */,
 				D1000000000000000000000B /* Products */,
 			);
@@ -563,6 +573,7 @@
 
 /* Begin XCBuildConfiguration section */
 		E10000000000000000000026 /* Debug */ = {
+			baseConfigurationReference = B10000000000000000000070 /* Secrets.xcconfig */;
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TheReadingHoardShare/TheReadingHoardShare.entitlements;
@@ -588,6 +599,7 @@
 			name = Debug;
 		};
 		E10000000000000000000027 /* Release */ = {
+			baseConfigurationReference = B10000000000000000000070 /* Secrets.xcconfig */;
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TheReadingHoardShare/TheReadingHoardShare.entitlements;
@@ -720,6 +732,7 @@
 			name = Release;
 		};
 		E10000000000000000000022 /* Debug */ = {
+			baseConfigurationReference = B10000000000000000000070 /* Secrets.xcconfig */;
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -745,6 +758,7 @@
 			name = Debug;
 		};
 		E10000000000000000000023 /* Release */ = {
+			baseConfigurationReference = B10000000000000000000070 /* Secrets.xcconfig */;
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
