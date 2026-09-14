@@ -1,26 +1,68 @@
 # The Reading Hoard
 
-The Reading Hoard is a native iOS reading companion that turns book recommendations from Instagram Reels into a calm, organized to-be-read library.
+Share a link from Instagram, TikTok, YouTube or Pinterest and the books in the video land
+in your library. Native SwiftUI, iOS 17+, no third-party packages. A small backend
+watches the video so the phone never has to.
 
-## Current milestone
+## What it does
 
-The first vertical slice includes:
+1. **Share or paste a link.** The share extension (`TheReadingHoardShare`) appears in the
+   share sheet of all four platforms. It writes the link to the App Group inbox first, posts
+   it to the backend with a 2.5 s cap, shows one line and dismisses. Pasting into the
+   Import tab does the same without the sheet.
+2. **The backend fetches the video and Gemini watches it** — frames and audio in one call —
+   and returns every book spoken, shown on screen or held up on a cover, each with a
+   timestamp and the verbatim text it was read from. A grounding gate drops anything the
+   model cannot point to in the video. Books stream back over SSE as each one closes.
+3. **Each book is resolved against Apple Books on device** (author, cover, edition) and saved
+   to the library with its source and evidence. Nothing waits for review; the library fills
+   as the books arrive.
 
-- SwiftUI app foundation for iOS 17+
-- a first-launch flight into the castle key art
-- genre, trope, and format onboarding
-- a warm castle-library visual system
-- a TBR library with duplicate-safe insertion
-- a mocked Instagram Reel import flow ready to be replaced by the production pipeline
-- unit tests for duplicate handling and import validation
+Every shared link shows its status on the Library and Import tabs — queued, reading,
+done, or why it failed, with *Try again*. A link never disappears silently.
 
-## Open the project
+Measured on real links: a TikTok carousel gives 15 books in ~10 s, an Instagram reel whose
+caption named no books gives all 10 from the video, a YouTube Short 8 in ~4 s.
 
-1. Open `TheReadingHoard.xcodeproj` in Xcode 15 or later.
-2. Select an iPhone simulator.
-3. Run the `TheReadingHoard` scheme.
+## Layout
 
-The mocked importer works offline. Paste any valid Instagram Reel URL to see a detected recommendation added to the library.
+| Path | What |
+| --- | --- |
+| `TheReadingHoard/` | The app. `Features/Import` (link import, status section), `Features/Library`, `Services/Import` (`HoardAPI` SSE client, `RemoteImporter`), `Services/Catalog` (Apple Books resolution and scorer), `Persistence/LibraryStore` (atomic JSON), `Models/BookRecommendation` (v2: optional author, `sources[]`, `evidence[]`). |
+| `TheReadingHoardShare/` | The share extension. A courier only: it never fetches, plays or shows media. |
+| `TheReadingHoard/Shared/` | `AppGroup` and `PendingImport`, compiled into both targets. The install id, API base URL and the import inbox live in the App Group `group.com.lisamd22.TheReadingHoard`. |
+| `backend/` | `hoard-api`: FastAPI, Python 3.12, Gemini. Per-platform resolvers, chunked parallel watching, SQLite caches, per-install rate limit, host allow-list. See [`backend/README.md`](backend/README.md). |
+| `docs/probe-results/` | What each platform's share sheet actually hands over, measured on a physical iPhone (only ever a URL — never media). |
+
+## Run it
+
+1. Copy `Config/Secrets.example.xcconfig` to `Config/Secrets.xcconfig` and set
+   `HOARD_APP_KEY` to the backend's `APP_KEY`. The file is gitignored and flows into both
+   Info.plists as `HoardAppKey`.
+2. Open `TheReadingHoard.xcodeproj` in Xcode 15 or later. Both targets need the App Group
+   `group.com.lisamd22.TheReadingHoard` under your team.
+3. Run the `TheReadingHoard` scheme on a simulator or device. The app talks to the deployed
+   backend by default; point it elsewhere with `-hoard-api <url>` (see below).
+
+For a local backend, follow [`backend/README.md`](backend/README.md) and launch the app with
+`-hoard-api http://<your-mac>:8080`. Info.plist allows local networking.
+
+## Launch arguments
+
+| Argument | Effect |
+| --- | --- |
+| `-hoard-import <url>` | Open the Import tab with the link filled in and start the import |
+| `-hoard-api <url>` | Use this backend instead of the default. Persists in App Group defaults — remove it afterwards |
+| `-hoard-demo` | Skip onboarding and seed an ephemeral sample shelf (nothing is persisted) |
+| `-hoard-skip-intro` | Go straight to the app |
+| `-hoard-force-intro` | Play the intro even after it has been seen |
+| `-hoardIntroFreeze <seconds>` | Hold the intro on one frame while tuning it |
+| `-hoardIntroSpeed <rate>` | Run the intro at a fraction of normal speed |
+
+## Tests
+
+- iOS: the `TheReadingHoardTests` target — book identity (title normalisation, author matching, Apple track ids), library merge rules, platform detection, URL validation.
+- Backend: `cd backend && .venv/bin/pytest` — canonical ids, grounding gate, stream parser.
 
 ## First-launch intro
 
@@ -50,9 +92,6 @@ twinkle, the doors parting and the light beyond them.
 
 It records that it has played in `UserDefaults` and is skipped when Reduce Motion is on.
 
-A recording is in [`Documentation/first-launch-intro.mp4`](Documentation/first-launch-intro.mp4)
-(half-size copy: `first-launch-intro-compact.mp4`).
-
 ### Resolution and the two-asset shortcut
 
 The base painting is 941 x 1672. Filling a 3x phone screen already upscales it 1.28x, so
@@ -65,16 +104,7 @@ art side rather than the code side:
    removes the matte and the cloned fill entirely, and with a dragon rendered in a flying
    pose the landing would be a real flight rather than a glide of a perched pose.
 
-Launch arguments for working on it:
-
-| Argument | Effect |
-| --- | --- |
-| `-hoard-force-intro` | Play the intro even after it has been seen |
-| `-hoard-skip-intro` | Go straight to the app |
-| `-hoard-demo` | Skip onboarding and seed a sample shelf |
-| `-hoardIntroFreeze <seconds>` | Hold the shot on one frame while tuning it |
-| `-hoardIntroSpeed <rate>` | Run the shot at a fraction of normal speed |
-
 ## Product plan
 
-See [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md) for the step-by-step roadmap derived from the build specification.
+[`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md) is the original milestone roadmap
+from the build specification; the link import above replaces its "mocked Reel import".
