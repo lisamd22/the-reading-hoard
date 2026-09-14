@@ -1,0 +1,24 @@
+READING HOARD PROBE  2026-09-01 10:54:35 +0000
+Device: physical iPhone. App: Instagram. Action: Reel -> paper-plane -> Share to... -> More
+inputItems: 1
+
+===== inputItem[0] =====
+attributedTitle:       nil
+attributedContentText: nil
+userInfo (2 entries):
+   [com.apple.UIKit.NSExtensionItemUserInfoIsContentManagedKey] = 0
+   [NSExtensionItemAttachmentsKey] = (
+    "<NSItemProvider: 0x132126300> {types = (\n    \"public.url\"\n)}"
+)
+attachments: 1
+
+  --- attachment[0.0] ---
+  suggestedName: nil
+  registeredTypeIdentifiers (1):
+     - public.url
+  openInPlace-capable: []
+  -> public.url
+       URL  scheme=https  isFile=false
+       https://www.instagram.com/reel/DbOYmimJhWZ/?igsi=c2Fyd2ZpMnJ1amkx
+
+--- end of probe (0.0s) ---

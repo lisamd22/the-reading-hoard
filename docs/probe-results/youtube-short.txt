@@ -1,0 +1,16 @@
+READING HOARD PROBE  2026-09-01 11:04:07 +0000
+Device: physical iPhone. App: YouTube. Action: Short -> Share -> More
+inputItems: 1
+attributedTitle:       nil
+attributedContentText: https://youtube.com/shorts/4-vP5OCmqWA?is=YN292DCMWt5J-RW7
+attachments: 1
+
+  --- attachment[0.0] ---
+  suggestedName: nil
+  registeredTypeIdentifiers (1):
+     - public.plain-text
+  openInPlace-capable: []
+  -> public.plain-text
+       String(58 chars)
+       https://youtube.com/shorts/4-vP5OCmqWA?is=YN292DCMWt5J-RW7
+--- end of probe (0.0s) ---

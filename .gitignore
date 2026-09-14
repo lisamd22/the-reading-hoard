@@ -1,0 +1,28 @@
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.moved-aside
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# macOS
+.DS_Store
+
+# Codex working files
+work/
+
+# backend secrets and local db
+backend/.env
+backend/*.db*
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# App key for the backend (matches fly secrets APP_KEY)
+Config/Secrets.xcconfig

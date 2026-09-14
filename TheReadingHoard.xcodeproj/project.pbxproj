@@ -1,0 +1,868 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000000000000000000042 /* SharedImportsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000042 /* SharedImportsSection.swift */; };
+		A10000000000000000000050 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000050 /* AppGroup.swift */; };
+		A10000000000000000000051 /* PendingImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000051 /* PendingImport.swift */; };
+		A10000000000000000000060 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000060 /* ShareViewController.swift */; };
+		A10000000000000000000061 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000050 /* AppGroup.swift */; };
+		A10000000000000000000062 /* PendingImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000051 /* PendingImport.swift */; };
+		A10000000000000000000063 /* HoardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000040 /* HoardAPI.swift */; };
+		A10000000000000000000064 /* ImportSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000030 /* ImportSource.swift */; };
+		A10000000000000000000065 /* TheReadingHoardShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B10000000000000000000063 /* TheReadingHoardShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A10000000000000000000011 /* IntroScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000011 /* IntroScene.swift */; };
+		A10000000000000000000012 /* IntroShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000012 /* IntroShapes.swift */; };
+		A10000000000000000000013 /* IntroRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000013 /* IntroRenderer.swift */; };
+		A10000000000000000000014 /* CastleFlightIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000014 /* CastleFlightIntroView.swift */; };
+		A10000000000000000000018 /* IntroBackdrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000018 /* IntroBackdrop.swift */; };
+		541FB1A7300D2DF800A84D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541FB1A6300D2DF800A84D47 /* Assets.xcassets */; };
+		A1000000000000000000000E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000E /* XCTest.framework */; };
+		A1000000000000000000000D /* MockRecommendationImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000D /* MockRecommendationImporterTests.swift */; };
+		A1000000000000000000000C /* RecommendationLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000C /* RecommendationLibraryTests.swift */; };
+		A1000000000000000000000B /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000B /* ImportView.swift */; };
+		A1000000000000000000000A /* BookCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000A /* BookCard.swift */; };
+		A10000000000000000000009 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000009 /* LibraryView.swift */; };
+		A10000000000000000000008 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000008 /* OnboardingView.swift */; };
+		A10000000000000000000007 /* RecommendationImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000007 /* RecommendationImporter.swift */; };
+		A10000000000000000000006 /* OnboardingProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000006 /* OnboardingProfile.swift */; };
+		A10000000000000000000005 /* BookRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000005 /* BookRecommendation.swift */; };
+		A10000000000000000000004 /* HoardTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* HoardTheme.swift */; };
+		A10000000000000000000003 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000003 /* RootView.swift */; };
+		A10000000000000000000002 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000002 /* AppState.swift */; };
+		A10000000000000000000001 /* TheReadingHoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000001 /* TheReadingHoardApp.swift */; };
+		A10000000000000000000030 /* ImportSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000030 /* ImportSource.swift */; };
+		A10000000000000000000031 /* BookIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000031 /* BookIdentity.swift */; };
+		A10000000000000000000032 /* Evidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000032 /* Evidence.swift */; };
+		A10000000000000000000033 /* LibraryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000033 /* LibraryStore.swift */; };
+		A10000000000000000000034 /* TitleNormalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000034 /* TitleNormalizer.swift */; };
+		A10000000000000000000035 /* StringSimilarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000035 /* StringSimilarity.swift */; };
+		A10000000000000000000038 /* AppleBooksCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000038 /* AppleBooksCatalog.swift */; };
+		A10000000000000000000036 /* OCREngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000036 /* OCREngine.swift */; };
+		A10000000000000000000037 /* CandidateExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000037 /* CandidateExtractor.swift */; };
+		A10000000000000000000039 /* ScreenshotImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000039 /* ScreenshotImporter.swift */; };
+		A10000000000000000000040 /* HoardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000040 /* HoardAPI.swift */; };
+		A10000000000000000000041 /* RemoteImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000041 /* RemoteImporter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C10000000000000000000002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E10000000000000000000004;
+			remoteInfo = TheReadingHoardShare;
+		};
+		C10000000000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E10000000000000000000001;
+			remoteInfo = TheReadingHoard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F1000000000000000000000A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A10000000000000000000065 /* TheReadingHoardShare.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B10000000000000000000070 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Secrets.xcconfig; path = Config/Secrets.xcconfig; sourceTree = "<group>"; };
+		B10000000000000000000042 /* SharedImportsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedImportsSection.swift; sourceTree = "<group>"; };
+		B10000000000000000000050 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		B10000000000000000000051 /* PendingImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingImport.swift; sourceTree = "<group>"; };
+		B10000000000000000000060 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		B10000000000000000000061 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B10000000000000000000062 /* TheReadingHoardShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheReadingHoardShare.entitlements; sourceTree = "<group>"; };
+		B10000000000000000000063 /* TheReadingHoardShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TheReadingHoardShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10000000000000000000011 /* IntroScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScene.swift; sourceTree = "<group>"; };
+		B10000000000000000000012 /* IntroShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroShapes.swift; sourceTree = "<group>"; };
+		B10000000000000000000013 /* IntroRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroRenderer.swift; sourceTree = "<group>"; };
+		B10000000000000000000014 /* CastleFlightIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastleFlightIntroView.swift; sourceTree = "<group>"; };
+		B10000000000000000000018 /* IntroBackdrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroBackdrop.swift; sourceTree = "<group>"; };
+		B10000000000000000000015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		541FB1A6300D2DF800A84D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B10000000000000000000010 /* TheReadingHoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheReadingHoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1000000000000000000000F /* TheReadingHoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheReadingHoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1000000000000000000000E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = System/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
+		B1000000000000000000000D /* MockRecommendationImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecommendationImporterTests.swift; sourceTree = "<group>"; };
+		B1000000000000000000000C /* RecommendationLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationLibraryTests.swift; sourceTree = "<group>"; };
+		B1000000000000000000000B /* ImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportView.swift; sourceTree = "<group>"; };
+		B1000000000000000000000A /* BookCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCard.swift; sourceTree = "<group>"; };
+		B10000000000000000000009 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		B10000000000000000000008 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		B10000000000000000000007 /* RecommendationImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationImporter.swift; sourceTree = "<group>"; };
+		B10000000000000000000006 /* OnboardingProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProfile.swift; sourceTree = "<group>"; };
+		B10000000000000000000005 /* BookRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRecommendation.swift; sourceTree = "<group>"; };
+		B10000000000000000000004 /* HoardTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoardTheme.swift; sourceTree = "<group>"; };
+		B10000000000000000000003 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		B10000000000000000000002 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		B10000000000000000000001 /* TheReadingHoardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheReadingHoardApp.swift; sourceTree = "<group>"; };
+		B10000000000000000000030 /* ImportSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSource.swift; sourceTree = "<group>"; };
+		B10000000000000000000031 /* BookIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookIdentity.swift; sourceTree = "<group>"; };
+		B10000000000000000000032 /* Evidence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evidence.swift; sourceTree = "<group>"; };
+		B10000000000000000000033 /* LibraryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryStore.swift; sourceTree = "<group>"; };
+		B10000000000000000000034 /* TitleNormalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleNormalizer.swift; sourceTree = "<group>"; };
+		B10000000000000000000035 /* StringSimilarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSimilarity.swift; sourceTree = "<group>"; };
+		B10000000000000000000038 /* AppleBooksCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleBooksCatalog.swift; sourceTree = "<group>"; };
+		B10000000000000000000036 /* OCREngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCREngine.swift; sourceTree = "<group>"; };
+		B10000000000000000000037 /* CandidateExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateExtractor.swift; sourceTree = "<group>"; };
+		B10000000000000000000039 /* ScreenshotImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotImporter.swift; sourceTree = "<group>"; };
+		B10000000000000000000040 /* HoardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoardAPI.swift; sourceTree = "<group>"; };
+		B10000000000000000000041 /* RemoteImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImporter.swift; sourceTree = "<group>"; };
+		B10000000000000000000024 /* TheReadingHoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheReadingHoard.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F10000000000000000000007 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F10000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F10000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000000000000000000000E /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D10000000000000000000037 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000070 /* Secrets.xcconfig */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000035 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000050 /* AppGroup.swift */,
+				B10000000000000000000051 /* PendingImport.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000036 /* TheReadingHoardShare */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000060 /* ShareViewController.swift */,
+				B10000000000000000000061 /* Info.plist */,
+				B10000000000000000000062 /* TheReadingHoardShare.entitlements */,
+			);
+			path = TheReadingHoardShare;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000030 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000033 /* LibraryStore.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000031 /* Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000034 /* TitleNormalizer.swift */,
+				B10000000000000000000035 /* StringSimilarity.swift */,
+				B10000000000000000000038 /* AppleBooksCatalog.swift */,
+			);
+			path = Catalog;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000032 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000036 /* OCREngine.swift */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000033 /* Extraction */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000037 /* CandidateExtractor.swift */,
+			);
+			path = Extraction;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000034 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000039 /* ScreenshotImporter.swift */,
+				B10000000000000000000040 /* HoardAPI.swift */,
+				B10000000000000000000041 /* RemoteImporter.swift */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000002 = {
+			isa = PBXGroup;
+			children = (
+				541FB1A6300D2DF800A84D47 /* Assets.xcassets */,
+				D10000000000000000000003 /* TheReadingHoard */,
+				D10000000000000000000009 /* TheReadingHoardTests */,
+				D10000000000000000000036 /* TheReadingHoardShare */,
+				D10000000000000000000037 /* Config */,
+				D1000000000000000000000A /* Frameworks */,
+				D1000000000000000000000B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D10000000000000000000003 /* TheReadingHoard */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000001 /* TheReadingHoardApp.swift */,
+				B10000000000000000000015 /* Info.plist */,
+				B10000000000000000000024 /* TheReadingHoard.entitlements */,
+				D10000000000000000000004 /* App */,
+				D10000000000000000000005 /* DesignSystem */,
+				D10000000000000000000006 /* Models */,
+				D10000000000000000000007 /* Services */,
+				D10000000000000000000030 /* Persistence */,
+				D10000000000000000000035 /* Shared */,
+				D10000000000000000000008 /* Features */,
+			);
+			path = TheReadingHoard;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000004 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000002 /* AppState.swift */,
+				B10000000000000000000003 /* RootView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000005 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000004 /* HoardTheme.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000006 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000005 /* BookRecommendation.swift */,
+				B10000000000000000000006 /* OnboardingProfile.swift */,
+				B10000000000000000000030 /* ImportSource.swift */,
+				B10000000000000000000031 /* BookIdentity.swift */,
+				B10000000000000000000032 /* Evidence.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000007 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000007 /* RecommendationImporter.swift */,
+				D10000000000000000000031 /* Catalog */,
+				D10000000000000000000032 /* Media */,
+				D10000000000000000000033 /* Extraction */,
+				D10000000000000000000034 /* Import */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000008 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				D1000000000000000000000F /* Intro */,
+				D1000000000000000000000C /* Onboarding */,
+				D1000000000000000000000D /* Library */,
+				D1000000000000000000000E /* Import */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		D10000000000000000000009 /* TheReadingHoardTests */ = {
+			isa = PBXGroup;
+			children = (
+				B1000000000000000000000C /* RecommendationLibraryTests.swift */,
+				B1000000000000000000000D /* MockRecommendationImporterTests.swift */,
+			);
+			path = TheReadingHoardTests;
+			sourceTree = "<group>";
+		};
+		D1000000000000000000000A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1000000000000000000000E /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D1000000000000000000000B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1000000000000000000000F /* TheReadingHoard.app */,
+				B10000000000000000000010 /* TheReadingHoardTests.xctest */,
+				B10000000000000000000063 /* TheReadingHoardShare.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D1000000000000000000000C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000008 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		D1000000000000000000000D /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000009 /* LibraryView.swift */,
+				B1000000000000000000000A /* BookCard.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		D1000000000000000000000E /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				B1000000000000000000000B /* ImportView.swift */,
+				B10000000000000000000042 /* SharedImportsSection.swift */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
+		D1000000000000000000000F /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000014 /* CastleFlightIntroView.swift */,
+				B10000000000000000000011 /* IntroScene.swift */,
+				B10000000000000000000018 /* IntroBackdrop.swift */,
+				B10000000000000000000012 /* IntroShapes.swift */,
+				B10000000000000000000013 /* IntroRenderer.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E10000000000000000000004 /* TheReadingHoardShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E10000000000000000000013 /* Build configuration list for PBXNativeTarget "TheReadingHoardShare" */;
+			buildPhases = (
+				F10000000000000000000008 /* Sources */,
+				F10000000000000000000007 /* Frameworks */,
+				F10000000000000000000009 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TheReadingHoardShare;
+			productName = TheReadingHoardShare;
+			productReference = B10000000000000000000063 /* TheReadingHoardShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		E10000000000000000000001 /* TheReadingHoard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E10000000000000000000011 /* Build configuration list for PBXNativeTarget "TheReadingHoard" */;
+			buildPhases = (
+				F10000000000000000000003 /* Sources */,
+				F10000000000000000000001 /* Frameworks */,
+				F10000000000000000000004 /* Resources */,
+				F1000000000000000000000A /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E10000000000000000000005 /* PBXTargetDependency */,
+			);
+			name = TheReadingHoard;
+			productName = TheReadingHoard;
+			productReference = B1000000000000000000000F /* TheReadingHoard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E10000000000000000000002 /* TheReadingHoardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E10000000000000000000012 /* Build configuration list for PBXNativeTarget "TheReadingHoardTests" */;
+			buildPhases = (
+				F10000000000000000000005 /* Sources */,
+				F10000000000000000000002 /* Frameworks */,
+				F10000000000000000000006 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E10000000000000000000003 /* PBXTargetDependency */,
+			);
+			name = TheReadingHoardTests;
+			productName = TheReadingHoardTests;
+			productReference = B10000000000000000000010 /* TheReadingHoardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D10000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					E10000000000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					E10000000000000000000002 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = E10000000000000000000001;
+					};
+					E10000000000000000000004 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = E10000000000000000000010 /* Build configuration list for PBXProject "TheReadingHoard" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D10000000000000000000002;
+			productRefGroup = D1000000000000000000000B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E10000000000000000000001 /* TheReadingHoard */,
+				E10000000000000000000002 /* TheReadingHoardTests */,
+				E10000000000000000000004 /* TheReadingHoardShare */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F10000000000000000000009 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F10000000000000000000004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				541FB1A7300D2DF800A84D47 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F10000000000000000000006 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F10000000000000000000008 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000060 /* ShareViewController.swift in Sources */,
+				A10000000000000000000061 /* AppGroup.swift in Sources */,
+				A10000000000000000000062 /* PendingImport.swift in Sources */,
+				A10000000000000000000063 /* HoardAPI.swift in Sources */,
+				A10000000000000000000064 /* ImportSource.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F10000000000000000000003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000001 /* TheReadingHoardApp.swift in Sources */,
+				A10000000000000000000002 /* AppState.swift in Sources */,
+				A10000000000000000000003 /* RootView.swift in Sources */,
+				A10000000000000000000004 /* HoardTheme.swift in Sources */,
+				A10000000000000000000005 /* BookRecommendation.swift in Sources */,
+				A10000000000000000000006 /* OnboardingProfile.swift in Sources */,
+				A10000000000000000000007 /* RecommendationImporter.swift in Sources */,
+				A10000000000000000000008 /* OnboardingView.swift in Sources */,
+				A10000000000000000000009 /* LibraryView.swift in Sources */,
+				A1000000000000000000000A /* BookCard.swift in Sources */,
+				A1000000000000000000000B /* ImportView.swift in Sources */,
+				A10000000000000000000042 /* SharedImportsSection.swift in Sources */,
+				A10000000000000000000011 /* IntroScene.swift in Sources */,
+				A10000000000000000000012 /* IntroShapes.swift in Sources */,
+				A10000000000000000000013 /* IntroRenderer.swift in Sources */,
+				A10000000000000000000014 /* CastleFlightIntroView.swift in Sources */,
+				A10000000000000000000018 /* IntroBackdrop.swift in Sources */,
+				A10000000000000000000030 /* ImportSource.swift in Sources */,
+				A10000000000000000000031 /* BookIdentity.swift in Sources */,
+				A10000000000000000000032 /* Evidence.swift in Sources */,
+				A10000000000000000000033 /* LibraryStore.swift in Sources */,
+				A10000000000000000000034 /* TitleNormalizer.swift in Sources */,
+				A10000000000000000000035 /* StringSimilarity.swift in Sources */,
+				A10000000000000000000036 /* OCREngine.swift in Sources */,
+				A10000000000000000000037 /* CandidateExtractor.swift in Sources */,
+				A10000000000000000000038 /* AppleBooksCatalog.swift in Sources */,
+				A10000000000000000000039 /* ScreenshotImporter.swift in Sources */,
+				A10000000000000000000040 /* HoardAPI.swift in Sources */,
+				A10000000000000000000041 /* RemoteImporter.swift in Sources */,
+				A10000000000000000000050 /* AppGroup.swift in Sources */,
+				A10000000000000000000051 /* PendingImport.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F10000000000000000000005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000000000000000000000C /* RecommendationLibraryTests.swift in Sources */,
+				A1000000000000000000000D /* MockRecommendationImporterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E10000000000000000000005 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E10000000000000000000004 /* TheReadingHoardShare */;
+			targetProxy = C10000000000000000000002 /* PBXContainerItemProxy */;
+		};
+		E10000000000000000000003 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E10000000000000000000001 /* TheReadingHoard */;
+			targetProxy = C10000000000000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E10000000000000000000026 /* Debug */ = {
+			baseConfigurationReference = B10000000000000000000070 /* Secrets.xcconfig */;
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TheReadingHoardShare/TheReadingHoardShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRHU3U42X6;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TheReadingHoardShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lisamd22.TheReadingHoard.Share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E10000000000000000000027 /* Release */ = {
+			baseConfigurationReference = B10000000000000000000070 /* Secrets.xcconfig */;
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TheReadingHoardShare/TheReadingHoardShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRHU3U42X6;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TheReadingHoardShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lisamd22.TheReadingHoard.Share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		E10000000000000000000020 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E10000000000000000000021 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E10000000000000000000022 /* Debug */ = {
+			baseConfigurationReference = B10000000000000000000070 /* Secrets.xcconfig */;
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TheReadingHoard/TheReadingHoard.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TheReadingHoard/TheReadingHoard.entitlements;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRHU3U42X6;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TheReadingHoard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lisamd22.TheReadingHoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E10000000000000000000023 /* Release */ = {
+			baseConfigurationReference = B10000000000000000000070 /* Secrets.xcconfig */;
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TheReadingHoard/TheReadingHoard.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TheReadingHoard/TheReadingHoard.entitlements;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRHU3U42X6;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TheReadingHoard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lisamd22.TheReadingHoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		E10000000000000000000024 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lisamd22.TheReadingHoardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheReadingHoard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TheReadingHoard";
+			};
+			name = Debug;
+		};
+		E10000000000000000000025 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lisamd22.TheReadingHoardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheReadingHoard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TheReadingHoard";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E10000000000000000000013 /* Build configuration list for PBXNativeTarget "TheReadingHoardShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E10000000000000000000026 /* Debug */,
+				E10000000000000000000027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E10000000000000000000010 /* Build configuration list for PBXProject "TheReadingHoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E10000000000000000000020 /* Debug */,
+				E10000000000000000000021 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E10000000000000000000011 /* Build configuration list for PBXNativeTarget "TheReadingHoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E10000000000000000000022 /* Debug */,
+				E10000000000000000000023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E10000000000000000000012 /* Build configuration list for PBXNativeTarget "TheReadingHoardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E10000000000000000000024 /* Debug */,
+				E10000000000000000000025 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D10000000000000000000001 /* Project object */;
+}
