@@ -89,15 +89,34 @@ final class AppState: ObservableObject {
     /// backend — resubmit under the same id (idempotent). `queued` entries are
     /// streamed; a finished job replays in under a second.
     @Published private(set) var recentlyArrived: [BookRecommendation] = []
+    /// Everything the extension has handed over recently, newest first — so the
+    /// Import screen can show what happened to each share, and a failure is
+    /// never silent.
+    @Published private(set) var sharedImports: [PendingImport] = []
     private var draining: Set<String> = []
 
     func drainSharedInbox() {
         SharedImportInbox.prune()
-        for item in SharedImportInbox.load() where item.state == .submitted || item.state == .queued {
+        refreshSharedImports()
+        for item in sharedImports where item.state == .submitted || item.state == .queued {
             guard !draining.contains(item.id) else { continue }
             draining.insert(item.id)
             Task { await drain(item) }
         }
+    }
+
+    func retrySharedImport(id: String) {
+        SharedImportInbox.update(id: id) { $0.state = .submitted; $0.jobID = nil; $0.message = nil }
+        drainSharedInbox()
+    }
+
+    func dismissSharedImport(id: String) {
+        SharedImportInbox.remove(id: id)
+        refreshSharedImports()
+    }
+
+    private func refreshSharedImports() {
+        sharedImports = SharedImportInbox.load().sorted { $0.createdAt > $1.createdAt }
     }
 
     private func drain(_ item: PendingImport) async {
@@ -126,8 +145,10 @@ final class AppState: ObservableObject {
             default:
                 break
             }
+            refreshSharedImports()
         }
         if !arrived.isEmpty { recentlyArrived.append(contentsOf: arrived) }
+        refreshSharedImports()
     }
 
     func clearRecentlyArrived() { recentlyArrived = [] }

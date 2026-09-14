@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A10000000000000000000042 /* SharedImportsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000042 /* SharedImportsSection.swift */; };
 		A10000000000000000000050 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000050 /* AppGroup.swift */; };
 		A10000000000000000000051 /* PendingImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000051 /* PendingImport.swift */; };
 		A10000000000000000000060 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000060 /* ShareViewController.swift */; };
@@ -81,6 +82,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B10000000000000000000042 /* SharedImportsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedImportsSection.swift; sourceTree = "<group>"; };
 		B10000000000000000000050 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		B10000000000000000000051 /* PendingImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingImport.swift; sourceTree = "<group>"; };
 		B10000000000000000000060 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				B1000000000000000000000B /* ImportView.swift */,
+				B10000000000000000000042 /* SharedImportsSection.swift */,
 			);
 			path = Import;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				A10000000000000000000009 /* LibraryView.swift in Sources */,
 				A1000000000000000000000A /* BookCard.swift in Sources */,
 				A1000000000000000000000B /* ImportView.swift in Sources */,
+				A10000000000000000000042 /* SharedImportsSection.swift in Sources */,
 				A10000000000000000000011 /* IntroScene.swift in Sources */,
 				A10000000000000000000012 /* IntroShapes.swift in Sources */,
 				A10000000000000000000013 /* IntroRenderer.swift in Sources */,

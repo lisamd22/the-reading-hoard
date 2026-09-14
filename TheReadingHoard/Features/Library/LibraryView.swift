@@ -11,6 +11,10 @@ struct LibraryView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     libraryHeader
 
+                    // A link shared from another app lands the user here first.
+                    // Anything still in flight or that failed is shown, never hidden.
+                    SharedImportsSection(onlyUnfinished: true)
+
                     if recommendations.isEmpty {
                         emptyState
                     } else {

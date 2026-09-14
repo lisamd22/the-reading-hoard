@@ -56,6 +56,10 @@ enum SharedImportInbox {
         }
     }
 
+    static func remove(id: String) {
+        mutate { items in items.removeAll { $0.id == id } }
+    }
+
     /// Drop finished entries older than a day so the file stays small.
     static func prune(olderThan interval: TimeInterval = 86_400) {
         mutate { items in

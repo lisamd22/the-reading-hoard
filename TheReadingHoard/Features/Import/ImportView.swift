@@ -37,6 +37,7 @@ struct ImportView: View {
                     header
                     linkCard
                     resultView
+                    SharedImportsSection()
                     screenshotCard
                 }
                 .padding(20)
